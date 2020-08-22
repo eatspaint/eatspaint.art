@@ -12,6 +12,7 @@
   "dependencies": {
     "@eatspaint/jp-color-palette": "eatspaint/jp-color-palette",
     "canvas-sketch": "^0.7.3",
-    "canvas-sketch-util": "^1.10.0"
+    "canvas-sketch-util": "^1.10.0",
+    "three": "^0.119.1"    
   }
 }
