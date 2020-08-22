@@ -9,7 +9,7 @@ const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
 
 const settings = {
-  dimensions: [1080, 1080],
+  dimensions: [2048, 2048],
   // framerate: 24,
   // Make the loop animated
   animate: true,
