@@ -5,6 +5,7 @@
   "main": "sketch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "canvas-sketch sketches/chromatic-waving.js --hot",
     "build": "canvas-sketch sketches/chromatic-waving.js --name index --build --inline"
   },
   "keywords": [],

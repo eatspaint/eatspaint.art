@@ -9,7 +9,7 @@ const settings = {
 };
 
 // CONSTANTS (RAND)
-const ROWS = random.rangeFloor(5, 50);
+const ROWS = random.rangeFloor(5, 20);
 const COLS = ROWS;
 const X1_FREQ = random.rangeFloor(1, 10);
 const Y1_FREQ = random.rangeFloor(1, 10);;
@@ -19,6 +19,7 @@ const X3_FREQ = random.rangeFloor(1, 10);;
 const Y3_FREQ = random.rangeFloor(1, 10);;
 const EXP = random.range(0.3, 1.7);
 const SPACE_SCALING = random.range(0.25, 0.5);
+const DEAD_ZONE = 0.25;
 
 // CONSTANTS (CALC)
 const TWO_PI = Math.PI * 2;
@@ -35,13 +36,17 @@ class Actor {
     this.size = size;
   }
 
-  drawCircle(context, xOffset, yOffset, color) {
+  drawCircle(context, offestDist, offsetAngle, color) {
     context.fillStyle = color;
     context.lineWidth = 5;
     context.beginPath();
+    let dist = 1 - offestDist;
+    dist = dist > DEAD_ZONE ? 0 : (dist - DEAD_ZONE) * 3;
+    const xOffset = dist * Math.sin(offsetAngle) * this.size;
+    const yOffset = dist * Math.cos(offsetAngle) * this.size;
     context.arc(
-      this.x - (xOffset * this.size),
-      this.y - (yOffset * this.size),
+      this.x - xOffset,
+      this.y - yOffset,
       this.size,
       0, TWO_PI
     );
@@ -50,21 +55,15 @@ class Actor {
 
   draw(context) {
     this.drawCircle(
-      context,
-      (1 - this.mod1) * Math.sin(0),
-      (1 - this.mod1) * Math.cos(0),
+      context, this.mod1, 0,
       'rgba(255, 0, 0, 1)'
     );
     this.drawCircle(
-      context,
-      (1 - this.mod2) * Math.sin(TWO_THIRD_PI),
-      (1 - this.mod2) * Math.cos(TWO_THIRD_PI),
+      context, this.mod2, TWO_THIRD_PI,
       'rgba(0, 0, 255, 1)'
     );
     this.drawCircle(
-      context,
-      (1 - this.mod3) * Math.sin(FOUR_THIRD_PI),
-      (1 - this.mod3) * Math.cos(FOUR_THIRD_PI),
+      context, this.mod3, FOUR_THIRD_PI,
       'rgba(0, 255, 0, 1)'
     );
   }
