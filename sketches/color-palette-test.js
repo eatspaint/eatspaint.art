@@ -1,4 +1,3 @@
-const canvasSketch = require('canvas-sketch');
 const random = require('canvas-sketch-util/random');
 import palettes from '@eatspaint/jp-color-palette';
 
@@ -45,4 +44,4 @@ const sketch = () => {
   };
 };
 
-canvasSketch(sketch, settings);
+export { sketch, settings };

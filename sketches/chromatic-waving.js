@@ -1,4 +1,3 @@
-const canvasSketch = require('canvas-sketch');
 const random = require('canvas-sketch-util/random');
 
 const settings = {
@@ -133,4 +132,4 @@ const sketch = () => {
   };
 };
 
-canvasSketch(sketch, settings);
+export { sketch, settings };
