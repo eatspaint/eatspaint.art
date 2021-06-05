@@ -1,4 +1,4 @@
 const canvasSketch = require('canvas-sketch');
-import { sketch, settings } from './degenerate';
+import { sketch, settings } from './blocky';
 
 canvasSketch(sketch, settings);
