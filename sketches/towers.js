@@ -67,7 +67,7 @@ const sketch = ({ context, width, height }) => {
   const scene = new THREE.Scene();
 
   const geometry = new THREE.BoxGeometry(xSize, ySize, zSize);
-  
+
   const lowColor = new THREE.Color(palette[0]);
   const highColor = new THREE.Color(palette[palette.length - 1]);
   const meshes = [];
@@ -107,7 +107,7 @@ const sketch = ({ context, width, height }) => {
         let phi = playhead * 2 * Math.PI;
         let pos = Math.sin(phase + phi);
         let ease = easing((pos * 0.5) + 0.5);
-        
+
         mesh.material.color.set(mixColors(highColor, lowColor, ease));
         mesh.scale.y = 1 + (SCALING * ease);
         mesh.translateX(pos);
@@ -124,4 +124,4 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-canvasSketch(sketch, settings);
+export {sketch, settings};
