@@ -16,6 +16,7 @@
     "canvas-sketch": "^0.7.3",
     "canvas-sketch-cli": "^1.11.15",
     "canvas-sketch-util": "^1.10.0",
+    "load-asset": "^1.2.0",
     "three": "^0.119.1"
   }
 }
